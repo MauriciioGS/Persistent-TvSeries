@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="seasons">
+        <item>1 Temporada</item>
+        <item>2 Temporadas</item>
+        <item>3 Temporadas</item>
+        <item>4 Temporadas</item>
+        <item>5 Temporadas</item>
+        <item>6 Temporadas</item>
+        <item>7 Temporadas</item>
+        <item>8 Temporadas</item>
+        <item>9 Temporadas</item>
+        <item>10 Temporadas</item>
+        <item>+10 Temporadas</item>
+    </string-array>
+</resources>
