@@ -13,4 +13,13 @@
         <item>10 Seasons</item>
         <item>+10 Seasons</item>
     </string-array>
+    <string-array name="platform">
+        <item>Disney+</item>
+        <item>Netflix</item>
+        <item>Prime Video</item>
+        <item>HBO max</item>
+        <item>Paramount+</item>
+        <item>Star+</item>
+        <item>Crunchyroll</item>
+    </string-array>
 </resources>

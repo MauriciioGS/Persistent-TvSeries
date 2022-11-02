@@ -14,13 +14,13 @@
     <fragment
         android:id="@+id/newSerieFragment"
         android:name="mx.mauriciogs.persistenttvseries.view.fragments.NewSerieFragment"
-        android:label="Agregar serie"
+        android:label="Nueva serie"
         tools:layout="@layout/fragment_new_serie" />
 
     <fragment
         android:id="@+id/listSeriesFragment"
         android:name="mx.mauriciogs.persistenttvseries.view.fragments.ListSeriesFragment"
-        android:label="fragment_list_series"
+        android:label="Mis series"
         tools:layout="@layout/fragment_list_series" >
         <action
             android:id="@+id/action_listSeriesFragment_to_newSerieFragment"
