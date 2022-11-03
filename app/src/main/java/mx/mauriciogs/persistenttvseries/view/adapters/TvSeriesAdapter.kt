@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import mx.mauriciogs.persistenttvseries.R
 import mx.mauriciogs.persistenttvseries.databinding.TvSerieItemBinding
 import mx.mauriciogs.persistenttvseries.model.entity.TvSerieEntity
+import mx.mauriciogs.persistenttvseries.view.fragments.ListSeriesFragment
 
 class TvSeriesAdapter(
-    private val context: Context
+    private val context: Context,
+    private val listSeriesFragment: ListSeriesFragment
 ): RecyclerView.Adapter<TvSeriesAdapter.ViewHolder>() {
 
     private var tvSeries: List<TvSerieEntity> = listOf()
@@ -36,7 +38,7 @@ class TvSeriesAdapter(
         holder.tvsGenre.text = tvSeries[position].genres
         holder.tvsYear.text = tvSeries[position].year.toString()
         holder.tvsSeasons.text = tvSeries[position].seasons
-        holder.tvsDesc.text = ""
+        holder.tvsDesc.text = tvSeries[position].description
 
         try {
             when(tvSeries[position].platform){
@@ -51,7 +53,11 @@ class TvSeriesAdapter(
             }
         } catch (npe: java.lang.NullPointerException){
             holder.ivPlatform.setImageResource(R.drawable.logo)
-            Log.e("NPE", "${npe.message}")
+            Log.e(context.resources.getString(R.string.error_nullpointer), "${npe.message}")
+        }
+
+        holder.itemView.setOnClickListener {
+            if(context == listSeriesFragment.context) listSeriesFragment.selectedTvSerie(tvSeries[position])
         }
     }
 

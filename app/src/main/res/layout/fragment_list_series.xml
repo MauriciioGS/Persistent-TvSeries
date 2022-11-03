@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="No Tv Series to show"
+            android:text="@string/no_tv_series_to_show"
             android:fontFamily="@font/josefin_sans_bold"
             android:textSize="20sp"/>
 

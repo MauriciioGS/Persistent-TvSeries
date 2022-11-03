@@ -1,6 +1,5 @@
 package mx.mauriciogs.persistenttvseries.view.fragments
 
-import android.R.attr.description
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,13 +17,12 @@ import mx.mauriciogs.persistenttvseries.databinding.FragmentNewSerieBinding
 import mx.mauriciogs.persistenttvseries.model.entity.TvSerieEntity
 import mx.mauriciogs.persistenttvseries.view.fragments.viewmodels.TvSeriesViewModel
 
-
 class NewSerieFragment : Fragment(){
 
     private var _binding: FragmentNewSerieBinding? = null
     private val binding get() = _binding!!
 
-    private val tvSeriesViewModel: TvSeriesViewModel by viewModels() {
+    private val tvSeriesViewModel: TvSeriesViewModel by viewModels {
         TvSeriesViewModel.TvSerieViewModelFactory( (requireActivity().application as TvSeriesApplication).repository )
     }
 
@@ -52,15 +50,32 @@ class NewSerieFragment : Fragment(){
                 val genresString = checkGenresBoxes()
                 when {
                     tietData1.text.toString().isEmpty() -> {
-                        emptyField(tietData1, "Se requiere un titulo")
+                        emptyField(tietData1, getString(R.string.txt_no_titulo))
                     }
                     tietData2.text.toString().isEmpty() -> {
-                        emptyField(tietData2, "Se requiere un año")
+                        emptyField(tietData2, getString(R.string.txt_no_anio))
+                    }
+                    tietData3.text.toString().isEmpty() -> {
+                        emptyField(tietData3, getString(R.string.txt_no_desc))
                     }
                     genresString.isBlank() -> {
                         Toast.makeText(
                             requireContext(),
-                            "Se requiere al menos un género",
+                            getText(R.string.txt_no_genero),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    itemMenuSelected.isBlank() -> {
+                        Toast.makeText(
+                            requireContext(),
+                            getText(R.string.txt_no_temporadas),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    platformSelected.isBlank() -> {
+                        Toast.makeText(
+                            requireContext(),
+                            getText(R.string.txt_no_plataforma),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -69,6 +84,7 @@ class NewSerieFragment : Fragment(){
                         val tvSerie = TvSerieEntity(
                             title = tietData1.text.toString().trim(),
                             year = tietData2.text.toString().toInt(),
+                            description = tietData3.text.toString(),
                             platform = platformSelected,
                             seasons = itemMenuSelected,
                             genres = genresString
@@ -79,7 +95,7 @@ class NewSerieFragment : Fragment(){
                         } catch (e: Exception) {
                             Toast.makeText(
                                 requireContext(),
-                                "Error al guardar el juego ${e.message}",
+                                "${getText(R.string.txt_error_guardado)} ${e.message}",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -92,19 +108,26 @@ class NewSerieFragment : Fragment(){
     private fun checkGenresBoxes(): String {
         var genres = ""
         with(binding) {
-            when {
-                checkbox1.isChecked -> genres = "$genres, ${checkbox1.text}"
-                checkbox2.isChecked -> genres = "$genres, ${checkbox2.text}"
-                checkbox3.isChecked -> genres = "$genres, ${checkbox3.text}"
-                checkbox4.isChecked -> genres = "$genres, ${checkbox4.text}"
-                checkbox5.isChecked -> genres = "$genres, ${checkbox5.text}"
-                checkbox6.isChecked -> genres = "$genres, ${checkbox6.text}"
-                checkbox7.isChecked -> genres = "$genres, ${checkbox7.text}"
-                checkbox8.isChecked -> genres = "$genres, ${checkbox8.text}"
-                else -> { }
-            }
+            if (checkbox1.isChecked)
+                genres = "$genres, ${checkbox1.text}"
+            if (checkbox2.isChecked)
+                genres = "$genres, ${checkbox2.text}"
+            if (checkbox3.isChecked)
+                genres = "$genres, ${checkbox3.text}"
+            if (checkbox4.isChecked)
+                genres = "$genres, ${checkbox4.text}"
+            if (checkbox5.isChecked)
+                genres = "$genres, ${checkbox5.text}"
+            if (checkbox6.isChecked)
+                genres = "$genres, ${checkbox6.text}"
+            if (checkbox7.isChecked)
+                genres = "$genres, ${checkbox7.text}"
+            if (checkbox8.isChecked)
+                genres = "$genres, ${checkbox8.text}"
         }
-        return genres
+        if (genres.isBlank())
+            return genres
+        return genres.substring(2)
     }
 
     private fun initComponents() {
@@ -130,13 +153,23 @@ class NewSerieFragment : Fragment(){
     private fun insertSuccessfull() {
         Toast.makeText(
             requireContext(),
-            "Juego agregado con éxito",
+            getText(R.string.txt_exito_guardado),
             Toast.LENGTH_SHORT
         ).show()
         with(binding){
             tietData1.text?.clear()
             tietData2.text?.clear()
+            tietData3.text?.clear()
             tietData1.requestFocus()
+
+            checkbox1.isChecked = false
+            checkbox2.isChecked = false
+            checkbox3.isChecked = false
+            checkbox4.isChecked = false
+            checkbox5.isChecked = false
+            checkbox6.isChecked = false
+            checkbox7.isChecked = false
+            checkbox8.isChecked = false
         }
     }
 
@@ -144,7 +177,7 @@ class NewSerieFragment : Fragment(){
         editText.error = message
         Toast.makeText(
             requireContext(),
-            "Llena todos los campos",
+            getText(R.string.txt_no_campos),
             Toast.LENGTH_SHORT
         ).show()
     }

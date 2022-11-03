@@ -1,5 +1,58 @@
 <resources>
     <string name="app_name">Persistent Tv Series</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="error_general">Ocurrió un error</string>
+
+    <!-- Adapter -->
+    <string name="error_nullpointer">NPE</string>
+
+    <!-- Fragment List Tv Series -->
+    <string name="no_tv_series_to_show">No hay series que mostrar</string>
+
+    <!-- Fragment Edit Tv Serie -->
+    <string name="hint_nombreserie">Nombre de la serie</string>
+    <string name="hint_anio">Año</string>
+    <string name="hint_descripcion">Añade una descripción…</string>
+    <string name="hint_temporadas">Temporadas</string>
+    <string name="hint_plataforma">Plataforma</string>
+    <string name="hint_generos">Generos</string>
+    <string name="btn_actualizar">Actualizar</string>
+    <string name="exito_actualizar">Serie actualizada con éxito</string>
+    <string name="error_actualizar">Error al guardar la serie</string>
+
+    <!-- Fragment New Tv Serie -->
+    <string name="btn_agregar">Agregar</string>
+    <string name="txt_no_titulo">Se requiere un titulo</string>
+    <string name="txt_no_anio">Se requiere un año</string>
+    <string name="txt_no_desc">Se requiere una descripción</string>
+    <string name="txt_no_genero">Se requiere al menos un género</string>
+    <string name="txt_no_plataforma">Elige una plataforma de streaming</string>
+    <string name="txt_no_temporadas">Elige una opción de temporadas</string>
+    <string name="txt_no_campos">Llena todos los campos</string>
+    <string name="txt_error_guardado">Error al guardar la serie.</string>
+    <string name="txt_exito_guardado">Serie agregada con éxito</string>
+
+    <!-- Fragment Detal Tv Serie -->
+    <string name="btn_borrar">Borrar</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="dialog_titulo">Confirmación</string>
+    <string name="dialog_message">Realmente deseas eliminar la serie</string>
+    <string name="error_borrado">No se pudo realizar la eliminación</string>
+    <string name="exito_borrado">Borrado exitoso</string>
+
+    <!-- ViewModel -->
+    <string name="error_viewmodel">Clase ViewModel desconocida</string>
+
+    <string name="genre1">Drama</string>
+    <string name="genre2">Acción</string>
+    <string name="genre3">Dibujos animados</string>
+    <string name="genre4">Terror/suspenso</string>
+    <string name="genre5">Comedia</string>
+    <string name="genre6">Romance</string>
+    <string name="genre7">Ciencia ficción</string>
+    <string name="genre8">Anime</string>
+
+
 </resources>

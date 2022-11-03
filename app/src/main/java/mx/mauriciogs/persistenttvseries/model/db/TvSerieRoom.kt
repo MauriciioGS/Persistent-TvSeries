@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import mx.mauriciogs.persistenttvseries.model.db.Constants.DATABASE_NAME
 import mx.mauriciogs.persistenttvseries.model.entity.TvSerieEntity
 
-@Database(entities = [TvSerieEntity::class], version = 2)
+@Database(entities = [TvSerieEntity::class], version = 1)
 abstract class TvSerieRoom: RoomDatabase() {
 
     abstract fun tvSerieDao(): TvSerieDao

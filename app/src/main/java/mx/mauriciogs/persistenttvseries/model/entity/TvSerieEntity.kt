@@ -11,6 +11,7 @@ data class TvSerieEntity(
     @ColumnInfo(name = "serieId") var id: Long = 0,
     @ColumnInfo(name = "serieTitle") var title: String,
     @ColumnInfo(name = "serieYear") var year: Int,
+    @ColumnInfo(name = "serieDescription") var description: String,
     @ColumnInfo(name = "serieSeasons") var seasons: String,
     @ColumnInfo(name = "seriePlatform") var platform: String,
     @ColumnInfo(name = "serieGenres") var genres: String

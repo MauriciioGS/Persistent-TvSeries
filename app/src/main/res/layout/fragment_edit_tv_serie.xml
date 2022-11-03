@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragments.NewSerieFragment">
+    tools:context=".view.fragments.EditTvSerieFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/llcContainerInputs"
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/josefin_sans_regular"
-                android:inputType="number"
+                android:imeOptions="actionDone"
                 android:lines="1"
                 android:maxLength="4"
                 android:textColor="@color/black" />
@@ -91,7 +91,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/josefin_sans_regular"
-                android:imeOptions="actionDone"
                 android:inputType="text"
                 android:lines="6"
                 android:textColor="@color/black" />
@@ -238,7 +237,7 @@
         android:layout_marginStart="46dp"
         android:layout_marginEnd="46dp"
         android:fontFamily="@font/josefin_sans_bold"
-        android:text="@string/btn_agregar"
+        android:text="@string/btn_actualizar"
         android:textColor="@color/primaryTextColor"
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"

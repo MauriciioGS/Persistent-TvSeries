@@ -25,6 +25,43 @@
         <action
             android:id="@+id/action_listSeriesFragment_to_newSerieFragment"
             app:destination="@id/newSerieFragment" />
+        <action
+            android:id="@+id/action_listSeriesFragment_to_tvDetailFragment"
+            app:destination="@id/tvDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvDetailFragment"
+        android:name="mx.mauriciogs.persistenttvseries.view.fragments.TvDetailFragment"
+        android:label="Detalle de serie"
+        tools:layout="@layout/fragment_tv_detail" >
+        <argument
+            android:name="tvSerie"
+            app:argType="mx.mauriciogs.persistenttvseries.domain.TvSerie"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_tvDetailFragment_to_listSeriesFragment2"
+            app:destination="@id/listSeriesFragment"
+            app:popUpTo="@+id/listSeriesFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_tvDetailFragment_to_editTvSerieFragment"
+            app:destination="@id/editTvSerieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTvSerieFragment"
+        android:name="mx.mauriciogs.persistenttvseries.view.fragments.EditTvSerieFragment"
+        android:label="Editar serie"
+        tools:layout="@layout/fragment_edit_tv_serie" >
+        <action
+            android:id="@+id/action_editTvSerieFragment_to_listSeriesFragment"
+            app:popUpTo="@+id/listSeriesFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/listSeriesFragment" />
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
 
 </navigation>
